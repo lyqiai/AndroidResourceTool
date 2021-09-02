@@ -20,14 +20,14 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class TaskStarter {
     static TaskBean[] funList = new TaskBean[]{
-            new TaskBean("1.自动处理项目string资源重复key", DeleteRepeatStringTaskImp.class),
-            new TaskBean("2.读取excel转string资源文件", Excel2stringTaskImp.class),
-            new TaskBean("3.对比string资源文件", CompareTaskImp.class),
-            new TaskBean("4.过滤无用string资源文件", null),
-            new TaskBean("5.txt转String资源文件", Txt2stringTaskImp.class),
-            new TaskBean("6.排序", StringSortTaskImp.class),
-            new TaskBean("7.自动处理项目重复image资源", DeleteRepeatImageTask.class),
-            new TaskBean("8.合并各模块string", MergeString2OneFileTaskImp.class),
+            new TaskBean("1.自动处理项目String资源重复key", DeleteRepeatStringTaskImp.class),
+            new TaskBean("2.读取Excel转String资源文件", Excel2stringTaskImp.class),
+            new TaskBean("3.对比String资源文件", CompareTaskImp.class),
+            new TaskBean("4.过滤无用String资源文件", null),
+            new TaskBean("5.Txt转String资源文件", Txt2stringTaskImp.class),
+            new TaskBean("6.String资源排序", StringSortTaskImp.class),
+            new TaskBean("7.自动处理项目重复Image资源", DeleteRepeatImageTask.class),
+            new TaskBean("8.合并各模块String资源", MergeString2OneFileTaskImp.class),
     };
 
     public static void start() {
