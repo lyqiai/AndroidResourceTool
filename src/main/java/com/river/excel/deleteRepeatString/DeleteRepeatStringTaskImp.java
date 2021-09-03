@@ -1,6 +1,7 @@
 package com.river.excel.deleteRepeatString;
 
 import com.river.excel.Constant;
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.util.DependenciesUtil;
 import com.river.excel.util.FileUtil;
@@ -29,7 +30,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class DeleteRepeatStringTaskImp implements Task {
+@Task(id = 1, name = "自动处理项目String资源重复key")
+public class DeleteRepeatStringTaskImp implements ITask {
 
     File projectDir;
 

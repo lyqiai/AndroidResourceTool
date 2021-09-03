@@ -1,5 +1,6 @@
 package com.river.excel.deleteRepeatImage;
 
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.util.DrawableUtil;
 import com.river.excel.util.FileUtil;
@@ -15,7 +16,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class DeleteRepeatImageTask implements Task {
+@Task(id = 7, name = "自动处理项目重复Image资源")
+public class DeleteRepeatImageTask implements ITask {
     private File projectDir;
     private DependenciesManager dependenciesManager = new DependenciesManager();
 

@@ -1,5 +1,6 @@
 package com.river.excel.merge;
 
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.util.FileUtil;
 import com.river.excel.util.InputUtil;
@@ -9,7 +10,8 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class MergeString2OneFileTaskImp implements Task {
+@Task(id = 8, name = "合并各模块String资源")
+public class MergeString2OneFileTaskImp implements ITask {
 
     @Override
     public void process() {

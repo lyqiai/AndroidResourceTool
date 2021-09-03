@@ -5,63 +5,48 @@ import com.river.excel.deleteRepeatImage.DeleteRepeatImageTask;
 import com.river.excel.deleteRepeatString.DeleteRepeatStringTaskImp;
 import com.river.excel.excelTransfer.Excel2stringTaskImp;
 import com.river.excel.merge.MergeString2OneFileTaskImp;
-import com.river.excel.model.TaskBean;
 import com.river.excel.sort.StringSortTaskImp;
+import com.river.excel.string2excel.String2ExcelTask;
 import com.river.excel.txtTransfer.Txt2stringTaskImp;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 
 /**
  * TODO 目前所欲任务都是串行执行，若任务处理时间过长需优化将引入Thread-Worker模式提高性能
  */
 public class TaskStarter {
-    static TaskBean[] funList = new TaskBean[]{
-            new TaskBean("1.自动处理项目String资源重复key", DeleteRepeatStringTaskImp.class),
-            new TaskBean("2.读取Excel转String资源文件", Excel2stringTaskImp.class),
-            new TaskBean("3.对比String资源文件", CompareTaskImp.class),
-            new TaskBean("4.过滤无用String资源文件", null),
-            new TaskBean("5.Txt转String资源文件", Txt2stringTaskImp.class),
-            new TaskBean("6.String资源排序", StringSortTaskImp.class),
-            new TaskBean("7.自动处理项目重复Image资源", DeleteRepeatImageTask.class),
-            new TaskBean("8.合并各模块String资源", MergeString2OneFileTaskImp.class),
+    private Class<?>[] funList = new Class<?>[]{
+            DeleteRepeatStringTaskImp.class,
+            Excel2stringTaskImp.class,
+            CompareTaskImp.class,
+            Txt2stringTaskImp.class,
+            StringSortTaskImp.class,
+            DeleteRepeatImageTask.class,
+            MergeString2OneFileTaskImp.class,
+            String2ExcelTask.class
     };
+    private HashMap<Integer, ITask> tasks = new HashMap<>();
 
-    public static void start() {
+    public void start() throws Exception {
         System.out.println("请选择你需要的功能：");
-        for (TaskBean fun : funList) {
-            System.out.println(fun.getTaskName());
+        for (Class clz : funList) {
+            Constructor emptyConstructor = clz.getDeclaredConstructor();
+            ITask tast = (ITask) emptyConstructor.newInstance();
+            Task annotation = tast.getClass().getAnnotation(Task.class);
+
+            tasks.put(annotation.id(), tast);
+
+            System.out.println(String.format("%d.%s", annotation.id(), annotation.name()));
         }
 
         BufferedReader funReader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            String line = funReader.readLine().trim();
-            int position = Integer.valueOf(line) - 1;
-            if (position >= funList.length) {
-                start();
-                return;
-            }
+        String line = funReader.readLine().trim();
+        int taskId = Integer.valueOf(line);
+        assert tasks.containsKey(taskId);
 
-            TaskBean taskBean = funList[position];
-
-            Class taskClz = taskBean.getTaskClz();
-            Constructor emptyConstructor = taskClz.getDeclaredConstructor();
-            Task task = (Task) emptyConstructor.newInstance();
-
-            task.process();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        tasks.get(taskId).process();
     }
 }

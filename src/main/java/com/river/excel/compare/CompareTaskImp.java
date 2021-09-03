@@ -1,5 +1,6 @@
 package com.river.excel.compare;
 
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.util.ConvertUtil;
 import com.river.excel.util.InputUtil;
@@ -17,7 +18,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class CompareTaskImp implements Task {
+@Task(id = 3, name = "对比String资源文件")
+public class CompareTaskImp implements ITask {
 
     private String baseXmlPath;
 

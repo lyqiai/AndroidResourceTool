@@ -1,5 +1,6 @@
 package com.river.excel.sort;
 
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.model.ExcelBean;
 import com.river.excel.util.InputUtil;
@@ -14,7 +15,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class StringSortTaskImp implements Task {
+@Task(id = 6, name = "String资源排序")
+public class StringSortTaskImp implements ITask {
     @Override
     public void process() {
         try {

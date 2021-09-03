@@ -3,19 +3,21 @@ package com.river.excel.excelTransfer;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.model.ExcelBean;
 import com.river.excel.util.InputUtil;
+import com.river.excel.util.XmlUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import com.river.excel.util.XmlUtil;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 
-public class Excel2stringTaskImp implements Task {
+@Task(id = 2, name = "读取Excel转String资源文件")
+public class Excel2stringTaskImp implements ITask {
     @Override
     public void process() {
         System.out.println("请输入excel路径：");

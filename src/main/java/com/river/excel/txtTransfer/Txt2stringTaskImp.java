@@ -1,5 +1,6 @@
 package com.river.excel.txtTransfer;
 
+import com.river.excel.ITask;
 import com.river.excel.Task;
 import com.river.excel.model.ExcelBean;
 import com.river.excel.util.InputUtil;
@@ -13,7 +14,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Txt2stringTaskImp implements Task {
+@Task(id = 5, name = "Txt转String资源文件")
+public class Txt2stringTaskImp implements ITask {
     File outputFile;
 
     @Override
