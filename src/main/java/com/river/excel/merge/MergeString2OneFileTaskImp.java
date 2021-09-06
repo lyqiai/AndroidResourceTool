@@ -1,16 +1,18 @@
 package com.river.excel.merge;
 
-import com.river.excel.ITask;
-import com.river.excel.Task;
+import com.river.excel.task.ITask;
+import com.river.excel.anno.Task;
 import com.river.excel.util.FileUtil;
 import com.river.excel.util.InputUtil;
 import com.river.excel.util.XmlUtil;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 @Task(id = 8, name = "合并各模块String资源")
+@Component
 public class MergeString2OneFileTaskImp implements ITask {
 
     @Override

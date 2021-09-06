@@ -1,10 +1,11 @@
 package com.river.excel.compare;
 
-import com.river.excel.ITask;
-import com.river.excel.Task;
+import com.river.excel.task.ITask;
+import com.river.excel.anno.Task;
 import com.river.excel.util.ConvertUtil;
 import com.river.excel.util.InputUtil;
 import com.river.excel.util.XmlUtil;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 @Task(id = 3, name = "对比String资源文件")
+@Component
 public class CompareTaskImp implements ITask {
 
     private String baseXmlPath;

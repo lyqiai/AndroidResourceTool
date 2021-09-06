@@ -1,9 +1,10 @@
 package com.river.excel.txtTransfer;
 
-import com.river.excel.ITask;
-import com.river.excel.Task;
+import com.river.excel.task.ITask;
+import com.river.excel.anno.Task;
 import com.river.excel.model.ExcelBean;
 import com.river.excel.util.InputUtil;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import com.river.excel.util.XmlUtil;
@@ -15,6 +16,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 @Task(id = 5, name = "Txt转String资源文件")
+@Component
 public class Txt2stringTaskImp implements ITask {
     File outputFile;
 

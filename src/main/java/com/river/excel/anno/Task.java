@@ -1,4 +1,4 @@
-package com.river.excel;
+package com.river.excel.anno;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

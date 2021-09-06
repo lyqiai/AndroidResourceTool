@@ -1,10 +1,11 @@
 package com.river.excel.sort;
 
-import com.river.excel.ITask;
-import com.river.excel.Task;
+import com.river.excel.task.ITask;
+import com.river.excel.anno.Task;
 import com.river.excel.model.ExcelBean;
 import com.river.excel.util.InputUtil;
 import com.river.excel.util.XmlUtil;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,6 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Task(id = 6, name = "String资源排序")
+@Component
 public class StringSortTaskImp implements ITask {
     @Override
     public void process() {

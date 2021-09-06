@@ -1,13 +1,14 @@
 package com.river.excel.deleteRepeatString;
 
 import com.river.excel.Constant;
-import com.river.excel.ITask;
-import com.river.excel.Task;
+import com.river.excel.task.ITask;
+import com.river.excel.anno.Task;
 import com.river.excel.util.DependenciesUtil;
 import com.river.excel.util.FileUtil;
 import com.river.excel.util.InputUtil;
 import com.river.excel.util.XmlUtil;
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -31,6 +32,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 @Task(id = 1, name = "自动处理项目String资源重复key")
+@Component
 public class DeleteRepeatStringTaskImp implements ITask {
 
     File projectDir;

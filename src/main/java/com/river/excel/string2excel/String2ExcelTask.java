@@ -1,15 +1,17 @@
 package com.river.excel.string2excel;
 
 import com.alibaba.excel.EasyExcel;
-import com.river.excel.ITask;
-import com.river.excel.Task;
+import com.river.excel.task.ITask;
+import com.river.excel.anno.Task;
 import com.river.excel.util.InputUtil;
 import com.river.excel.util.XmlUtil;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.*;
 
 @Task(id = 9, name = "strings.xml转excel")
+@Component
 public class String2ExcelTask implements ITask {
     private File output;
     private List<String> files;
