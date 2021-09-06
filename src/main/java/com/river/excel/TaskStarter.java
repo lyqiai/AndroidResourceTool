@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * TODO 目前所欲任务都是串行执行，若任务处理时间过长需优化将引入Thread-Worker模式提高性能
  */
 public class TaskStarter {
-    private ApplicationContext context;
+    private final ApplicationContext context;
     private final List<ITask> tasks;
 
     public TaskStarter() {

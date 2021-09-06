@@ -32,8 +32,7 @@ public class String2ExcelTask implements ITask {
         }
 
         // 写法1
-        String fileName = "D:\\output.xlsx";
-        EasyExcel.write(fileName).head(head()).sheet("模板").doWrite(dataList());
+        EasyExcel.write(output.getAbsolutePath()).head(head()).sheet("模板").doWrite(dataList());
     }
 
 
@@ -63,10 +62,5 @@ public class String2ExcelTask implements ITask {
             list.add(data);
         });
         return list;
-    }
-
-
-    public static void main(String[] args) {
-        new String2ExcelTask().process();
     }
 }
