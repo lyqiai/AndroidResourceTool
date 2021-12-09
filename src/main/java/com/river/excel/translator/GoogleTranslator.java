@@ -1,4 +1,4 @@
-package com.river.excel.compare.translator;
+package com.river.excel.translator;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;

@@ -54,8 +54,6 @@ public class MergeString2OneFileTaskImp implements ITask {
                             cnt = countMap.get(key) + 1;
                         }
                         countMap.put(key, cnt);
-
-//                        dataMap.put(key + "_repeat_" + cnt, value);
                     } else {
                         dataMap.put(key, value);
                     }

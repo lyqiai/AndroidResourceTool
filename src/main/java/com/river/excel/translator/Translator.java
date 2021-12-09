@@ -1,4 +1,4 @@
-package com.river.excel.compare.translator;
+package com.river.excel.translator;
 
 public interface Translator {
     String translate(String langFrom, String langTo, String word) throws Exception;

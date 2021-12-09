@@ -9,6 +9,7 @@ public class BdResult {
 
     private String from;
     private String to;
+
     private List<TransResultDTO> trans_result;
 
     @Data

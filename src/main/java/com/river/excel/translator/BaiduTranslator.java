@@ -1,4 +1,4 @@
-package com.river.excel.compare.translator;
+package com.river.excel.translator;
 
 import com.google.gson.Gson;
 import com.river.excel.model.BdResult;
@@ -39,12 +39,11 @@ public class BaiduTranslator implements Translator {
         }
         in.close();
 
-        return parseResult(response.toString());
+        String result = parseResult(response.toString());
+        return result;
     }
 
     public String parseResult(String inputJson) {
-        System.out.println(inputJson);
-
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -53,7 +52,10 @@ public class BaiduTranslator implements Translator {
 
         Gson gson = new Gson();
         BdResult bdResult = gson.fromJson(inputJson, BdResult.class);
+
         if (bdResult.getTrans_result().size() > 0) {
+            System.out.println(String.format("from %s to %s, from text %s, to text: %s", bdResult.getFrom(), bdResult.getTo(), bdResult.getTrans_result().get(0).getSrc(), bdResult.getTrans_result().get(0).getDst()));
+
             return bdResult.getTrans_result().get(0).getDst();
         }
 
